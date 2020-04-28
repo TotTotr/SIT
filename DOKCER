@@ -1,0 +1,9 @@
+#!/bin/bash
+git clone https://gitlab.com/romanov73/example-jpa.git
+./example-jpa/gradlew build
+
+systemctl postgres disable
+systemctl postgres stop
+
+docker build -t rkhisam1 -f RDocker .
+docker run -it --name=mycontainer rkhisam
